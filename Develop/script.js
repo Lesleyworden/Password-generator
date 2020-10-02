@@ -31,6 +31,9 @@ function copyPassword() {
   document.execCommand("Copy");
   }
 
+  generateBtn.addEventListener("click", writePassword);
+  copyBtn.addEventListener("click", copyPassword);
+
 function generatePassword() {
   userInput();
 
@@ -58,10 +61,28 @@ function generatePassword() {
         userNumericChoice = confirm ("Would you like to use numeric characters? Ok for yes, cancel for no");
         userSpecialChoice = confirm ("Would you like to use special characters? Ok for yes, cancel for no");
   }
+      randomizedResult();
+      function randomizedResult() {
+        const specialChars ="!@#$%^&*()?-_=+/][}{`~";
+        let characterRandomizer = 0;
+
+        while (passwordArray.length < passwordLength){
 
 
+          characterRandomizer = Math.floor(Math.random() *4);
+          console.log (characterRandomizer);
 
+          if (characterRandomizer === 0 && userUpperChoice === true) {
+            passwordArray.push([String.fromCharCode(Math.floor(Math.random() * 26) + 65)]);
+        } else if (characterRandomizer === 1 && userLowerChoice === true) {
+            passwordArray.push(String.fromCharCode(Math.floor(Math.random() * 26) + 97));
+        } else if (characterRandomizer === 2 && userNumericChoice === true) {
+            passwordArray.push(String.fromCharCode(Math.floor(Math.random() * 10) + 48));
+        } else if (characterRandomizer === 3 && userSpecialChoice === true) {
+            passwordArray.push(specialChars[Math.floor(Math.random() * specialChars.length)]);
+        }
+    }
+    return passwordArray;
+}
 }
 
-
-generateBtn.addEventListener("click", writePassword);
