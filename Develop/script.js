@@ -7,11 +7,21 @@ var passwordFinal = document.querySelector("#password");
 
 // Write password to the #password input
 function writePassword() {
+  // passwordArray is the variable which the password will be written as the randomizers return their values.//
+  passwordArray = [];
+  passwordLength = 0;
+
+  userLengthChoice = '';
+  userUpperChoice = false;
+  userLowerChoice = false;
+  userNumericChoice = false;
+  userSpecialChoice = false;
+
   var password = generatePassword();
+  password = passwordArray.join("");
+
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
