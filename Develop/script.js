@@ -10,7 +10,7 @@ function writePassword() {
   // passwordArray is the variable which the password will be written as the randomizers return their values.//
   passwordArray = [];
   passwordLength = 0;
-
+//Stores variable selection made by user for generatePassword //
   userLengthChoice = '';
   userUpperChoice = false;
   userLowerChoice = false;
@@ -25,4 +25,29 @@ function writePassword() {
 }
 
 // Add event listener to generate button
+
+function copyPassword() {
+  passwordFinal.select();
+  document.execCommand("Copy");
+  }
+
+function generatePassword() {
+  userInput();
+
+  function userInput() {
+    userLengthChoice = prompt ("Please select a password length between 8 and 128 characters long.");
+      if (userLengthChoice === null) {
+        return;
+      }
+      passwordLength = parseInt(userLengthChoice, 10);
+      
+        if(passwordLength < 8 || passwordLength > 128){
+          alert("This selection is not valid. Please try again.");
+          userInput();
+          return;
+        }
+  }
+}
+
+
 generateBtn.addEventListener("click", writePassword);
