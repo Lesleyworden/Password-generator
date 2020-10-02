@@ -46,7 +46,21 @@ function generatePassword() {
           userInput();
           return;
         }
+        var isLetter = Number(userLowerChoice);
+          if (isNaN(isLetter)) {
+              alert ("This selection is not valid. Please try again.");
+              userInput();
+              return;
+          }
+
+        userUpperChoice = confirm ("Would you like to use upper case letters? Ok for yes, cancel for no.");
+        userLowerChoice = confirm ('Would you like to use lower case letters? Ok for yes, cancel for no');
+        userNumericChoice = confirm ("Would you like to use numeric characters? Ok for yes, cancel for no");
+        userSpecialChoice = confirm ("Would you like to use special characters? Ok for yes, cancel for no");
   }
+
+
+
 }
 
 
