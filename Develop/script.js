@@ -30,9 +30,11 @@ function copyPassword() {
   passwordFinal.select();
   document.execCommand("Copy");
   }
+// Add event listener to generate button. This listener will listen for a click of the button and then call the function writePassword() when clicked
+generateBtn.addEventListener("click", writePassword);
+// copyBtn.addEventListener("click", copyPassword);
+copyBtn.addEventListener("click", copyPassword);
 
-  generateBtn.addEventListener("click", writePassword);
-  copyBtn.addEventListener("click", copyPassword);
 
 function generatePassword() {
   userInput();
